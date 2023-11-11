@@ -1,10 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { Request } from 'express';
 
 @Controller()
 export class AppController {
 
-    @Get()
-    getUser(): string {
-        return 'I am a user';
-    }
+    
+
 }

@@ -1,20 +1,27 @@
-import { Controller, Get, Param, Post, Req } from "@nestjs/common";
+import { Controller, Delete, Get, Param, Patch, Post, Req } from "@nestjs/common";
 import { Request } from "express";
+import { UserService } from "./user.service";
 
 @Controller('user')
 export class UserController {
+    constructor(private UserService: UserService) {}
     @Get()
-    getUser() {
-        return 'I am from user Controller';
-    }
+    getUSers() {
+        return this.UserService.getUser();
+    } 
 
     @Post()
     store(@Req() req: Request) {
         console.log(req.body);
     }
 
-    @Get('/:userId')
-    getUserById(@Param() params: {userId: number}) {
-        return `I am a user: ${ params.userId }`;
+    @Patch('/:userId')
+    update(@Req() req: Request) {
+        return req.body;
+    }
+
+    @Delete('/:userId')
+    delete() {
+        return 'Deleted User';
     }
 }

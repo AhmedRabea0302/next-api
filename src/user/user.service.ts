@@ -11,15 +11,15 @@ export class UserService {
         console.log(createUserDTO);
     }
 
-    update(updateUserDTO: updateUserDTO, param: { userId: number}) {
-        return { updateUserDTO, param };
+    update(updateUserDTO: updateUserDTO, userId: number) {
+        return { updateUserDTO, userId };
     }
 
-    getUser(param: { userId: number }) {
-        return { param };
+    getUser(userId: number) {
+        return { userId };
     }
 
-    delete(param: { userId: number }) {
-        return { param };
+    delete(userId: number) {
+        return { userId };
     }
 }
